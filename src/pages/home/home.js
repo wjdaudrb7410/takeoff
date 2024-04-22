@@ -2,10 +2,13 @@ import { Link } from "react-router-dom";
 import { HelmetTitle } from "../../components/HelmetTitle";
 import { routes } from "../../routes";
 import { useForm } from "react-hook-form";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useCurrentPos } from "../../components/useCurrentPos";
 import { BasedOnLocation, SearchKey, ServiceName } from "../../api";
+import styled from "styled-components";
+
+import { MainBanner } from "../../components/MainBanner";
 
 export const Home = () => {
   const [page, SetPage] = useState(1);
@@ -37,8 +40,16 @@ export const Home = () => {
   return (
     <>
       <HelmetTitle title={"Home"} />
-      홈페이지임
-      <button>
+      {lLoading ? (
+        <div>로딩중</div>
+      ) : (
+        <MainBanner data={ldata.response.body.items.item}></MainBanner>
+      )}
+    </>
+  );
+};
+{
+  /* <button>
         <Link to={routes.Signin}>사인인</Link>
       </button>
       <form
@@ -73,7 +84,5 @@ export const Home = () => {
             <div>검색결과 없음</div>
           )}
         </div>
-      )}
-    </>
-  );
-};
+      )} */
+}
