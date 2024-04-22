@@ -5,13 +5,20 @@ import { useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useCurrentPos } from "../../components/useCurrentPos";
-import { BasedOnLocation, ServiceName } from "../../api";
+import { BasedOnLocation, SearchKey, ServiceName } from "../../api";
 
 export const Home = () => {
+  const [page, SetPage] = useState(1);
+  const [keyword, SetKeyword] = useState("");
   const { lat, lon } = useCurrentPos();
   const [fdata, SetData] = useState();
-  const { data, isLoading } = useQuery({
-    queryKey: [ServiceName.BasedLocation, lon, lat, 2000, 12],
+  const { data: sdata, isLoading: sLoading } = useQuery({
+    queryKey: [ServiceName.searchKeyword, keyword, page],
+    queryFn: SearchKey,
+    enabled: !!keyword,
+  });
+  const { data: ldata, isLoading: lLoading } = useQuery({
+    queryKey: [ServiceName.BasedLocation, lon, lat, 5000, 12],
     queryFn: BasedOnLocation,
   });
   const {
@@ -21,14 +28,12 @@ export const Home = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
+    SetKeyword(data.search);
+    console.log(sLoading);
+    console.log(sdata);
+    console.log(sLoading);
     reset();
   };
-  useEffect(() => {
-    console.log(data);
-    SetData(data);
-    console.log(fdata);
-  }, []);
   return (
     <>
       <HelmetTitle title={"Home"} />
@@ -46,6 +51,29 @@ export const Home = () => {
         />
         <input type="submit" />
       </form>
+      {lLoading ? (
+        <div>로딩중</div>
+      ) : (
+        <div>
+          {ldata.response.body.items.item.map((rsl) => (
+            <div key={rsl.contentid}>{rsl.addr1}</div>
+          ))}
+        </div>
+      )}
+      {sLoading ? (
+        <div>검색중</div>
+      ) : (
+        <div>
+          <div>키워드 검색</div>
+          {sdata ? (
+            sdata?.response.body.items.item.map((rsl) => (
+              <div key={rsl.contentid}>{rsl.addr1}</div>
+            ))
+          ) : (
+            <div>검색결과 없음</div>
+          )}
+        </div>
+      )}
     </>
   );
 };

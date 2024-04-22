@@ -40,8 +40,9 @@ export const BasedOnLocation = ({ queryKey }) => {
 };
 export const SearchKey = ({ queryKey }) => {
   const [Service, Keyword, pages] = queryKey;
+
   return instance
-    .get(`${Service}?keyword=${Keyword}&pageNo${pages}`)
+    .get(`${Service}?keyword=${Keyword}&pageNo=${pages}`)
     .then((res) => res.data);
 };
 // function App() {
