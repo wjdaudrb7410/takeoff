@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/takeoff/static/css/main.900c1a46.css",
-    "main.js": "/takeoff/static/js/main.4e09ced6.js",
+    "main.js": "/takeoff/static/js/main.c1595706.js",
     "index.html": "/takeoff/index.html",
     "main.900c1a46.css.map": "/takeoff/static/css/main.900c1a46.css.map",
-    "main.4e09ced6.js.map": "/takeoff/static/js/main.4e09ced6.js.map"
+    "main.c1595706.js.map": "/takeoff/static/js/main.c1595706.js.map"
   },
   "entrypoints": [
     "static/css/main.900c1a46.css",
-    "static/js/main.4e09ced6.js"
+    "static/js/main.c1595706.js"
   ]
 }
