@@ -4,4 +4,5 @@ export const routes = {
   Signin: "/Signin",
   Signup: "/Signup",
   Detail: "/detail/:id",
+  Search: "/Search/:keyword",
 };

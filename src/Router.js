@@ -5,6 +5,7 @@ import { Signup } from "./pages/Signup/Signup";
 import { Home } from "./pages/home/home";
 import { Detail } from "./pages/Detail/Detail";
 import { FOF } from "./pages/FOF/FOF";
+import { Search } from "./pages/SearchResult/Search";
 
 export const Router = () => {
   return (
@@ -16,6 +17,7 @@ export const Router = () => {
           <Route path={routes.Signup} element={<Signup />} />
           <Route path={routes.Detail} element={<Detail />} />
           <Route path={routes.FoF} element={<FOF />} />
+          <Route path={routes.Search} element={<Search />} />
         </Routes>
       </HashRouter>
     </>
