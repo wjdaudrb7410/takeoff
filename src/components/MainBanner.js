@@ -18,10 +18,7 @@ export const MainBanner = ({ data }) => {
           {data.map((rsl) => (
             <SwiperSlide key={rsl.contentid} style={{ objectFit: "contain" }}>
               {rsl.firstimage ? (
-                <img
-                  src={rsl.firstimage}
-                  style={{ objectFit: "contain" }}
-                ></img>
+                <img src={rsl.firstimage} style={{ objectFit: "fill" }}></img>
               ) : (
                 <div>이미지 없음</div>
               )}

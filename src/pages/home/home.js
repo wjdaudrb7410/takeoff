@@ -43,7 +43,7 @@ export const Home = () => {
       {lLoading ? (
         <div>로딩중</div>
       ) : (
-        <MainBanner data={ldata.response.body.items.item}></MainBanner>
+        <MainBanner data={ldata?.response?.body?.items?.item}></MainBanner>
       )}
     </>
   );
