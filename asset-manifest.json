@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/takeoff/static/js/main.5b539797.js",
+    "main.js": "/takeoff/static/js/main.694608f7.js",
     "index.html": "/takeoff/index.html",
-    "main.5b539797.js.map": "/takeoff/static/js/main.5b539797.js.map"
+    "main.694608f7.js.map": "/takeoff/static/js/main.694608f7.js.map"
   },
   "entrypoints": [
-    "static/js/main.5b539797.js"
+    "static/js/main.694608f7.js"
   ]
 }
