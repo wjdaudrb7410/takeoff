@@ -10,6 +10,7 @@ const SearchBars = styled.input`
   width: 300px;
   height: 24px;
   border-radius: 20px;
+  border: 1px solid gray;
 `;
 const SearchButton = styled.button`
   all: unset;

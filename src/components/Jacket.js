@@ -5,6 +5,9 @@ const JacketWrap = styled.div`
   display: block;
   width: 100%;
   height: 100%;
+  &:hover {
+    transform: rotateX("300px");
+  }
 `;
 const JacketBlur = styled.div`
   position: relative;
@@ -21,6 +24,7 @@ const JacketBlur = styled.div`
   }
 `;
 const JacketTitle = styled.div`
+  padding-top: 3px;
   font-size: 10px;
 `;
 export const Jacket = ({ data }) => {

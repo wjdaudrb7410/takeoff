@@ -7,14 +7,13 @@ import "swiper/css/grid";
 import "swiper/css/free-mode";
 import styled from "styled-components";
 import { Header } from "./Header";
-
 import { Jacket } from "./Jacket";
 import { SearchBar } from "./SearchBar";
 import { Link } from "react-router-dom";
 
 const SwiperWrap = styled.div`
-  padding: 30px 30px;
-  width: 400px;
+  padding: 0 30px;
+  width: 380px;
   height: 420px;
   .swiper {
     width: 100%;
@@ -39,6 +38,23 @@ const SwiperWrap = styled.div`
     height: 100%;
     object-fit: cover;
   }
+  @keyframes post-ani {
+    25% {
+      transform: rotate(2deg) scale(1.01);
+    }
+
+    50% {
+      transform: rotate(0deg) scale(1);
+    }
+
+    75% {
+      transform: rotate(-2deg) scale(1.01);
+    }
+  }
+  .swiper-slide:hover {
+    opacity: 0.9;
+    animation: post-ani 0.8s linear 1;
+  }
 `;
 const ContentWrap = styled.div`
   width: 100px;
@@ -48,6 +64,12 @@ const ContentWrap = styled.div`
   overflow: hidden;
   box-shadow: 5px 5px 3px #666;
 `;
+const LocalText = styled.div`
+  font-size: 14px;
+  padding-top: 20px;
+  padding-left: 70px;
+  align-self: flex-start;
+`;
 export const MainBanner = ({ data }) => {
   console.log(data);
   return (
@@ -55,6 +77,7 @@ export const MainBanner = ({ data }) => {
       <Containers>
         <Header />
         <SearchBar></SearchBar>
+        <LocalText>당신 주변에 있는 관광지</LocalText>
         <SwiperWrap>
           <Swiper
             direction={"vertical"}

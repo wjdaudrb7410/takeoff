@@ -41,13 +41,17 @@ const Addr = styled.div`
     size: 10px;
   }
 `;
+const Desc = styled.div`
+  padding: 20px 0;
+  font-size: 12px;
+  opacity: 0.7;
+`;
 export const Detail = () => {
   const data = useParams();
   const { data: Ddata, isLoading: DLoading } = useQuery({
     queryKey: [ServiceName.Detail, data.id],
     queryFn: ShowDetail,
   });
-  console.log(Ddata);
   return (
     <>
       <HelmetTitle title={"Detail"} />
@@ -69,6 +73,7 @@ export const Detail = () => {
               <FaLocationDot />
               <div>{Ddata.response.body.items.item[0].addr1}</div>
             </Addr>
+            <Desc>{Ddata.response.body.items.item[0].overview}</Desc>
           </TextWrap>
         </Containers>
       )}
