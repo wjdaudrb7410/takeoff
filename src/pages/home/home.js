@@ -9,6 +9,7 @@ import { BasedOnLocation, SearchKey, ServiceName } from "../../api";
 import styled from "styled-components";
 
 import { MainBanner } from "../../components/MainBanner";
+import { Containers } from "../../components/Container";
 
 export const Home = () => {
   const [page, SetPage] = useState(1);
@@ -24,24 +25,14 @@ export const Home = () => {
     queryKey: [ServiceName.BasedLocation, lon, lat, 5000, 12],
     queryFn: BasedOnLocation,
   });
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm();
-  const onSubmit = (data) => {
-    SetKeyword(data.search);
-    console.log(sLoading);
-    console.log(sdata);
-    console.log(sLoading);
-    reset();
-  };
+
   return (
     <>
       <HelmetTitle title={"Home"} />
       {lLoading ? (
-        <div>로딩중</div>
+        <Containers>
+          <div>로딩중</div>
+        </Containers>
       ) : (
         <MainBanner data={ldata?.response?.body?.items?.item}></MainBanner>
       )}

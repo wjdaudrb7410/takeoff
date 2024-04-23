@@ -4,14 +4,14 @@ const windowSize = {
   large: 'screen and (max-width: "1024px")',
 };
 export const lightTheme = {
-  bgColor: "#121212",
-  textColor: "#b8b8b8",
+  bgColor: "#F7FAFC",
+  textColor: "#1A202C",
 };
 export const DarkTheme = {
-  bgColor: "#b8b8b8",
-  textColor: "#121212",
+  bgColor: "#1A202C",
+  textColor: "#F7FAFC",
 };
-const theme = {
+export const theme = {
   windowSize,
   lightTheme,
   DarkTheme,
