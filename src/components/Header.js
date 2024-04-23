@@ -27,13 +27,12 @@ const TitleWrap = styled.div`
   flex-direction: row;
 `;
 const ModeButton = styled.button`
+  width: 50px;
+  height: 50px;
   margin-right: 20px;
   border-radius: 20px;
   border: none;
   margin-top: 10px;
-  svg {
-    padding-top: 1px;
-  }
   &:hover {
     background-color: #4a5568;
     transition: 0.5s;
@@ -52,7 +51,7 @@ export const Header = () => {
         </Link>
 
         <ModeButton onClick={toggleTheme}>
-          {ThemeMode === "light" ? <FaSun /> : <FaMoon />}
+          {ThemeMode === "light" ? <FaSun size={30} /> : <FaMoon size={30} />}
         </ModeButton>
       </HeaderWrap>
     </>
