@@ -15,7 +15,7 @@ export const ServiceName = {
   Detail: "detailCommon1",
 };
 const instance = axios.create({
-  baseURL: "http://apis.data.go.kr/B551011/KorService1/",
+  baseURL: "https://apis.data.go.kr/B551011/KorService1/",
   params: {
     MobileApp: "takeoff",
     MobileOS: "AND",
