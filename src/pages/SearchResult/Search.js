@@ -15,6 +15,7 @@ import { Jacket } from "../../components/Jacket";
 import styled from "styled-components";
 
 const KeywordText = styled.p`
+  font-size: 14px;
   margin: 10px 0;
 `;
 export const Search = () => {
@@ -44,7 +45,7 @@ export const Search = () => {
       <Containers>
         <Header />
         <SearchForm onSubmit={handleSubmit(onSubmit)}>
-          <IoIosSearch size={40} color="gray" />
+          <IoIosSearch size={30} color="gray" />
           <SearchBars
             type="text"
             placeholder="무슨 장소든 입력해 보세요"

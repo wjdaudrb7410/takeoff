@@ -99,8 +99,10 @@ export const Detail = () => {
               }}
               style={{
                 // 지도의 크기
+                borderRadius: "15px",
+                margin: "auto",
                 width: "100%",
-                height: "350px",
+                height: "300px",
               }}
               level={3}
             >

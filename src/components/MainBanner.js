@@ -7,12 +7,12 @@ export const ContentWrap = styled.div`
   margin: 0 20px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 20px;
+  grid-gap: 40px;
   column-gap: 10px;
 `;
 const LocalText = styled.div`
   margin: 20px;
-  font-size: 24px;
+  font-size: 16px;
   align-self: flex-start;
 `;
 export const MainBanner = ({ data }) => {

@@ -6,17 +6,18 @@ import styled from "styled-components";
 import { ErrText } from "./Container";
 
 export const SearchForm = styled.form`
+  width: 100%;
   margin: 20px 0;
   position: relative;
   svg {
     position: absolute;
-    top: 5px;
+    top: 10px;
   }
 `;
 export const SearchBars = styled.input`
-  padding: 0 40px;
+  padding: 0 30px;
   width: 100%;
-  font-size: 24px;
+  font-size: 16px;
   height: 50px;
   border-radius: 20px;
   border: 1px solid gray;
@@ -37,7 +38,7 @@ export const SearchBar = () => {
   return (
     <>
       <SearchForm onSubmit={handleSubmit(onSubmit)}>
-        <IoIosSearch size={40} color="gray" />
+        <IoIosSearch size={30} color="gray" />
         <SearchBars
           type="text"
           placeholder="무슨 장소든 입력해 보세요"

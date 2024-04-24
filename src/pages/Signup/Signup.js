@@ -1,10 +1,11 @@
 import { HelmetTitle } from "../../components/HelmetTitle";
+import { LogMenu } from "../../components/LogMenu";
 
 export const Signup = () => {
   return (
     <>
       <HelmetTitle title={"Signup"} />
-      회원가입임
+      <LogMenu isLog={true}></LogMenu>
     </>
   );
 };
