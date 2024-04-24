@@ -61,7 +61,9 @@ export const Detail = () => {
     <>
       <HelmetTitle title={"Detail"} />
       {DLoading ? (
-        <Loading />
+        <Containers>
+          <Loading />
+        </Containers>
       ) : (
         <Containers>
           <Header />
