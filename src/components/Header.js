@@ -23,6 +23,7 @@ const Title = styled.h1`
   font-weight: 700;
 `;
 const TitleWrap = styled.div`
+  margin-left: 10px;
   display: flex;
   flex-direction: row;
 `;

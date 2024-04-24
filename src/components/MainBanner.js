@@ -8,9 +8,10 @@ export const ContentWrap = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 20px;
+  column-gap: 10px;
 `;
 const LocalText = styled.div`
-  margin: 20px 0;
+  margin: 20px;
   font-size: 24px;
   align-self: flex-start;
 `;
@@ -21,6 +22,7 @@ export const MainBanner = ({ data }) => {
       <Header />
       <LocalText>가고싶은곳이 있으신가요?</LocalText>
       <SearchBar></SearchBar>
+
       <ContentWrap>
         {data?.map((rsl) => (
           <Jacket key={rsl.contentid} data={rsl}></Jacket>

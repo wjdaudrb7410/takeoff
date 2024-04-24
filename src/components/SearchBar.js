@@ -7,7 +7,6 @@ import { ErrText } from "./Container";
 
 export const SearchForm = styled.form`
   margin: 20px 0;
-  width: 100%;
   position: relative;
   svg {
     position: absolute;
@@ -15,7 +14,7 @@ export const SearchForm = styled.form`
   }
 `;
 export const SearchBars = styled.input`
-  padding-left: 40px;
+  padding: 0 40px;
   width: 100%;
   font-size: 24px;
   height: 50px;

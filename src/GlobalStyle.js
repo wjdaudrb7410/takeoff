@@ -17,7 +17,6 @@ export const GlobalStyle = createGlobalStyle`
       letter-spacing: -1px;
         background-color: ${({ theme }) => theme.bgColor};
         color: ${({ theme }) => theme.textColor};
-        
     }
     a{
           text-decoration: none;

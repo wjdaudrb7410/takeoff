@@ -12,7 +12,11 @@ import { IoIosSearch } from "react-icons/io";
 import { useForm } from "react-hook-form";
 import { ContentWrap } from "../../components/MainBanner";
 import { Jacket } from "../../components/Jacket";
+import styled from "styled-components";
 
+const KeywordText = styled.p`
+  margin: 10px 0;
+`;
 export const Search = () => {
   const {
     register,
@@ -48,7 +52,7 @@ export const Search = () => {
           ></SearchBars>
           <ErrText>{errors?.keyword?.message}</ErrText>
         </SearchForm>
-
+        <KeywordText>"{words}" 의 검색결과</KeywordText>
         {kLoading ? (
           <Loading />
         ) : (
