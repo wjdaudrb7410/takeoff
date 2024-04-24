@@ -1,19 +1,26 @@
 import { useForm } from "react-hook-form";
-import { FaSearch } from "react-icons/fa";
+
+import { IoIosSearch } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { ErrText } from "./Container";
 
-const SearchForm = styled.form``;
-const SearchBars = styled.input`
+export const SearchForm = styled.form`
+  margin: 20px 0;
+  width: 100%;
+  position: relative;
+  svg {
+    position: absolute;
+    top: 5px;
+  }
+`;
+export const SearchBars = styled.input`
+  padding-left: 40px;
   width: 100%;
   font-size: 24px;
   height: 50px;
   border-radius: 20px;
   border: 1px solid gray;
-`;
-const SearchButton = styled.button`
-  all: unset;
-  cursor: pointer;
 `;
 export const SearchBar = () => {
   const navigate = useNavigate();
@@ -31,12 +38,13 @@ export const SearchBar = () => {
   return (
     <>
       <SearchForm onSubmit={handleSubmit(onSubmit)}>
+        <IoIosSearch size={40} color="gray" />
         <SearchBars
           type="text"
-          placeholder="검색"
+          placeholder="무슨 장소든 입력해 보세요"
           {...register("keyword", { required: "검색값을 입력하세요" })}
         ></SearchBars>
-        <SearchButton type="submit"></SearchButton>
+        <ErrText>{errors?.keyword?.message}</ErrText>
       </SearchForm>
     </>
   );

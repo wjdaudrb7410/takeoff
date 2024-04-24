@@ -7,10 +7,11 @@ import styled from "styled-components";
 import { NO_IMG } from "../../GlobalStyle";
 import { Header } from "../../components/Header";
 import { FaLocationDot } from "react-icons/fa6";
+import { BsFillTelephoneFill } from "react-icons/bs";
+import { Loading } from "../../components/Loading";
 
 const MainImg = styled.img`
-  position: relative;
-  top: -80px;
+  margin-top: 20px;
   width: 400px;
   height: 300px;
   object-fit: cover;
@@ -22,28 +23,28 @@ const MainImg = styled.img`
   );
 `;
 const TextWrap = styled.div`
-  margin-top: -50px;
   padding: 0 20px;
   width: 400px;
   text-align: left;
 `;
 const Title = styled.h1`
-  font-size: 24px;
+  font-size: 28px;
 `;
 const Addr = styled.div`
   margin-top: 20px;
   display: flex;
   flex-direction: row;
-  font-size: 12px;
+  font-size: 16px;
   color: gray;
   opacity: 0.7;
   svg {
     size: 10px;
+    margin-right: 5px;
   }
 `;
-const Desc = styled.div`
+const Desc = styled.p`
   padding: 20px 0;
-  font-size: 12px;
+  font-size: 20px;
   opacity: 0.7;
 `;
 export const Detail = () => {
@@ -56,7 +57,7 @@ export const Detail = () => {
     <>
       <HelmetTitle title={"Detail"} />
       {DLoading ? (
-        <div>로딩중</div>
+        <Loading />
       ) : (
         <Containers>
           <Header />
@@ -71,7 +72,16 @@ export const Detail = () => {
             <Title>{Ddata.response.body.items.item[0].title}</Title>
             <Addr>
               <FaLocationDot />
+
               <div>{Ddata.response.body.items.item[0].addr1}</div>
+            </Addr>
+            <Addr>
+              <BsFillTelephoneFill />
+              {Ddata.response.body.items.item[0].tel ? (
+                <div>: {Ddata?.response?.body?.items?.item[0]?.tel}</div>
+              ) : (
+                <div>: 전화번호없음</div>
+              )}
             </Addr>
             <Desc>{Ddata.response.body.items.item[0].overview}</Desc>
           </TextWrap>

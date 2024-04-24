@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { routes } from "../routes";
 const HeaderWrap = styled.div`
   margin-top: 30px;
-  width: 400px;
+  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -15,27 +15,29 @@ const HeaderWrap = styled.div`
   z-index: 1;
 `;
 const Title = styled.h1`
-  top: 20px;
-  right: 12px;
+  font-size: 28px;
+  top: 26px;
+  right: 14px;
   position: relative;
   color: ${Color.Title};
   font-weight: 700;
 `;
 const TitleWrap = styled.div`
-  margin-left: 20px;
   display: flex;
   flex-direction: row;
 `;
 const ModeButton = styled.button`
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   margin-right: 20px;
-  border-radius: 20px;
+  border-radius: 12px;
   border: none;
-  margin-top: 10px;
   &:hover {
     background-color: #4a5568;
     transition: 0.5s;
+  }
+  svg {
+    margin-top: 5px;
   }
 `;
 export const Header = () => {
@@ -45,13 +47,13 @@ export const Header = () => {
       <HeaderWrap>
         <Link to={routes.home}>
           <TitleWrap>
-            <PiAirplaneTakeoffFill size={40} color={Color.Title} />
+            <PiAirplaneTakeoffFill size={60} color={Color.Title} />
             <Title>Take OFF</Title>
           </TitleWrap>
         </Link>
 
         <ModeButton onClick={toggleTheme}>
-          {ThemeMode === "light" ? <FaSun size={30} /> : <FaMoon size={30} />}
+          {ThemeMode === "light" ? <FaSun size={25} /> : <FaMoon size={25} />}
         </ModeButton>
       </HeaderWrap>
     </>
