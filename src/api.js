@@ -50,7 +50,7 @@ export const ShowDetail = ({ queryKey }) => {
   const [Service, contentid] = queryKey;
   return instance
     .get(
-      `${Service}?contentId=${contentid}&defaultYN=Y&firstImageYN=Y&areacodeYN=Y&addrinfoYN=Y&overviewYN=Y`
+      `${Service}?contentId=${contentid}&defaultYN=Y&firstImageYN=Y&areacodeYN=Y&addrinfoYN=Y&overviewYN=Y&mapinfoYN=Y`
     )
     .then((res) => res.data);
 };

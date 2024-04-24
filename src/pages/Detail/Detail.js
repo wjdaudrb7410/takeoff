@@ -9,6 +9,8 @@ import { Header } from "../../components/Header";
 import { FaLocationDot } from "react-icons/fa6";
 import { BsFillTelephoneFill } from "react-icons/bs";
 import { Loading } from "../../components/Loading";
+import useKakaoLoader from "../../useKakaoLoader";
+import { Map, MapMarker } from "react-kakao-maps-sdk";
 
 const MainImg = styled.img`
   margin-top: 20px;
@@ -48,11 +50,13 @@ const Desc = styled.p`
   opacity: 0.7;
 `;
 export const Detail = () => {
+  useKakaoLoader();
   const data = useParams();
   const { data: Ddata, isLoading: DLoading } = useQuery({
     queryKey: [ServiceName.Detail, data.id],
     queryFn: ShowDetail,
   });
+  console.log(Ddata);
   return (
     <>
       <HelmetTitle title={"Detail"} />
@@ -84,6 +88,27 @@ export const Detail = () => {
               )}
             </Addr>
             <Desc>{Ddata.response.body.items.item[0].overview}</Desc>
+            <Map
+              id="map"
+              center={{
+                // 지도의 중심좌표
+                lat: Ddata.response.body.items.item[0].mapy,
+                lng: Ddata.response.body.items.item[0].mapx,
+              }}
+              style={{
+                // 지도의 크기
+                width: "100%",
+                height: "350px",
+              }}
+              level={3}
+            >
+              <MapMarker
+                position={{
+                  lat: Ddata.response.body.items.item[0].mapy,
+                  lng: Ddata.response.body.items.item[0].mapx,
+                }}
+              />
+            </Map>
           </TextWrap>
         </Containers>
       )}

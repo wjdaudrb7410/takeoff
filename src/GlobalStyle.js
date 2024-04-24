@@ -17,6 +17,8 @@ export const GlobalStyle = createGlobalStyle`
       letter-spacing: -1px;
         background-color: ${({ theme }) => theme.bgColor};
         color: ${({ theme }) => theme.textColor};
+        max-width: 450px;
+        margin: auto;
     }
     a{
           text-decoration: none;
