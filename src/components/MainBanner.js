@@ -12,7 +12,9 @@ export const ContentWrap = styled.div`
 `;
 const LocalText = styled.div`
   margin: 20px;
-  font-size: 16px;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 22px;
   align-self: flex-start;
 `;
 export const MainBanner = ({ data }) => {

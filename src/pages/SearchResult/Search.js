@@ -15,7 +15,11 @@ import { Jacket } from "../../components/Jacket";
 import styled from "styled-components";
 
 const KeywordText = styled.p`
-  font-size: 14px;
+  text-align: left;
+  padding-left: 20px;
+  margin: 10px 0 25px 0px;
+  width: 100%;
+  font-size: 24px;
   margin: 10px 0;
 `;
 export const Search = () => {
@@ -33,7 +37,6 @@ export const Search = () => {
     queryFn: SearchKey,
     enabled: !!words,
   });
-  console.log(kdata);
   const onSubmit = (data) => {
     SetWord();
     SetWord(data.keyword);

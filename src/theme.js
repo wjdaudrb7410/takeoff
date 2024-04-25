@@ -5,10 +5,10 @@ const windowSize = {
 };
 export const lightTheme = {
   bgColor: "#eee",
-  textColor: "#1A202C",
+  textColor: "#1d1d1d",
 };
 export const DarkTheme = {
-  bgColor: "#1A202C",
+  bgColor: "#1d1d1d",
   textColor: "#eee",
 };
 export const theme = {

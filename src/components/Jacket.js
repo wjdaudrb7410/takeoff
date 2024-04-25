@@ -7,8 +7,11 @@ const JacketWrap = styled.div`
 `;
 
 const JacketTitle = styled.div`
+  margin-top: 10px;
   margin-left: 5px;
   font-size: 16px;
+  font-weight: 700;
+  line-height: 22px;
 `;
 const JacketBlur = styled.div`
   display: flex;

@@ -11,11 +11,12 @@ export const SearchForm = styled.form`
   position: relative;
   svg {
     position: absolute;
+    left: 15px;
     top: 10px;
   }
 `;
 export const SearchBars = styled.input`
-  padding: 0 30px;
+  padding: 0 50px;
   width: 100%;
   font-size: 16px;
   height: 50px;

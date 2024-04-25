@@ -10,43 +10,53 @@ import { FaLocationDot } from "react-icons/fa6";
 import { BsFillTelephoneFill } from "react-icons/bs";
 import { Loading } from "../../components/Loading";
 import useKakaoLoader from "../../useKakaoLoader";
-import { Map, MapMarker } from "react-kakao-maps-sdk";
+import {
+  Map,
+  MapMarker,
+  MapTypeControl,
+  ZoomControl,
+} from "react-kakao-maps-sdk";
 
 const MainImg = styled.img`
+  border-radius: 15px;
   margin-top: 20px;
   width: 400px;
   height: 300px;
   object-fit: cover;
-  mask-image: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(255, 255, 255, 1) 68%,
-    rgba(255, 255, 255, 0) 100%
-  );
 `;
 const TextWrap = styled.div`
-  padding: 0 20px;
   width: 400px;
   text-align: left;
 `;
 const Title = styled.h1`
+  font-weight: 500;
+  margin-top: 30px;
   font-size: 28px;
 `;
+const LocTitle = styled.h1`
+  font-weight: 500;
+  margin: 30px 0;
+  font-size: 20px;
+`;
 const Addr = styled.div`
+  font-weight: 300;
   margin-top: 20px;
   display: flex;
   flex-direction: row;
   font-size: 16px;
   color: gray;
-  opacity: 0.7;
+  opacity: 0.8;
   svg {
     size: 10px;
     margin-right: 5px;
   }
 `;
 const Desc = styled.p`
+  line-height: 28px;
+  letter-spacing: 0;
+  margin-top: 20px;
   padding: 20px 0;
-  font-size: 20px;
+  font-size: 16px;
   opacity: 0.7;
 `;
 export const Detail = () => {
@@ -56,7 +66,6 @@ export const Detail = () => {
     queryKey: [ServiceName.Detail, data.id],
     queryFn: ShowDetail,
   });
-  console.log(Ddata);
   return (
     <>
       <HelmetTitle title={"Detail"} />
@@ -86,10 +95,11 @@ export const Detail = () => {
               {Ddata.response.body.items.item[0].tel ? (
                 <div>: {Ddata?.response?.body?.items?.item[0]?.tel}</div>
               ) : (
-                <div>: 전화번호없음</div>
+                <div> 전화번호없음</div>
               )}
             </Addr>
             <Desc>{Ddata.response.body.items.item[0].overview}</Desc>
+            <LocTitle>위치</LocTitle>
             <Map
               id="map"
               center={{
@@ -99,6 +109,7 @@ export const Detail = () => {
               }}
               style={{
                 // 지도의 크기
+
                 borderRadius: "15px",
                 margin: "auto",
                 width: "100%",
@@ -112,6 +123,8 @@ export const Detail = () => {
                   lng: Ddata.response.body.items.item[0].mapx,
                 }}
               />
+              <MapTypeControl position={"TOPRIGHT"} />
+              <ZoomControl position={"RIGHT"} />
             </Map>
           </TextWrap>
         </Containers>

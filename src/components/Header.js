@@ -8,8 +8,9 @@ import {
   FaMoon,
   FaRegistered,
   FaSun,
+  FaUser,
 } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { routes } from "../routes";
 import { BiRegistered } from "react-icons/bi";
 import { FaPeopleGroup } from "react-icons/fa6";
@@ -32,14 +33,14 @@ const Title = styled.h1`
   font-weight: 700;
 `;
 const TitleWrap = styled.div`
-  margin-left: 10px;
+  margin-left: 20px;
   display: flex;
   flex-direction: row;
 `;
 const ModeButton = styled.button`
-  width: 40px;
-  height: 40px;
-  margin-right: 10px;
+  width: 30px;
+  height: 30px;
+  margin-right: 20px;
   border-radius: 12px;
   border: none;
   &:hover {
@@ -47,10 +48,18 @@ const ModeButton = styled.button`
     transition: 0.5s;
   }
   svg {
+    color: gray;
     margin-top: 5px;
   }
+  a {
+    width: 100%;
+  }
+`;
+const ButtonWrap = styled.div`
+  display: flex;
 `;
 export const Header = () => {
+  const navigate = useNavigate();
   const [ThemeMode, toggleTheme] = useTheme();
   return (
     <>
@@ -61,21 +70,15 @@ export const Header = () => {
             <Title>Take OFF</Title>
           </TitleWrap>
         </Link>
-        <div>
-          <Link to={routes.Signup}>
-            <ModeButton>
-              <FaPeopleGroup size={25} />
-            </ModeButton>
-          </Link>
-          <Link to={routes.Signin}>
-            <ModeButton>
-              <FaLock size={25} />
-            </ModeButton>
-          </Link>
-          <ModeButton onClick={toggleTheme}>
-            {ThemeMode === "light" ? <FaSun size={25} /> : <FaMoon size={25} />}
+        <ButtonWrap>
+          <ModeButton onClick={() => navigate(routes.Signin)}>
+            <FaUser size={16} />
           </ModeButton>
-        </div>
+
+          <ModeButton onClick={toggleTheme}>
+            {ThemeMode === "light" ? <FaSun size={16} /> : <FaMoon size={16} />}
+          </ModeButton>
+        </ButtonWrap>
       </HeaderWrap>
     </>
   );

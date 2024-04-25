@@ -25,6 +25,7 @@ export const GlobalStyle = createGlobalStyle`
           color: ${({ theme }) => theme.textColor};
       }
       input{
+        color: #dbdbdb;
         outline: none;
         border: 1px solid gray;
       }
