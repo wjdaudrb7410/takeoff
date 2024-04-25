@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { routes } from "../routes";
 import { MdEmail } from "react-icons/md";
 import { useState } from "react";
-import { Containers } from "./Container";
+import { Containers, ErrText } from "./Container";
 
 const LoginForm = styled.form`
   position: relative;
@@ -33,10 +33,30 @@ const FormWrap = styled.div`
   padding: 0 20px;
 `;
 const LoginButton = styled.button`
+  font-size: 16px;
   margin-top: 30px;
   width: 100%;
   height: 50px;
+  border: 1px solid gray;
+  border-radius: 20px;
   align-self: center;
+  background-color: white;
+  transition: 0.5s;
+  &:hover {
+    background-color: #a0aec0;
+  }
+`;
+const LoginTItle = styled.div`
+  align-self: flex-start;
+  p {
+    font-size: 18px;
+  }
+  p:nth-child(2) {
+    opacity: 0.7;
+    margin-top: 10px;
+    font-size: 12px;
+    letter-spacing: 0;
+  }
 `;
 export const LogMenu = ({ isLog }) => {
   const navigate = useNavigate();
@@ -53,13 +73,27 @@ export const LogMenu = ({ isLog }) => {
       <Containers>
         <Header />
         <FormWrap>
+          <LoginTItle>
+            {isLog === true ? (
+              <>
+                <p>Register</p>
+                <p>To You can go wherever you want to go.</p>
+              </>
+            ) : (
+              <>
+                <p>Login</p>
+                <p>To You can go wherever you want to go.</p>
+              </>
+            )}
+          </LoginTItle>
+
           <LoginForm onSubmit={handleSubmit(onSubmit)}>
             {isLog === true ? (
               <>
                 <MdEmail size={30} />
                 <LogInput
                   type="email"
-                  placeholder="이메일"
+                  placeholder="e-mail"
                   {...register("email", {
                     required: "이메일을 입력해주세요",
                     minLength: {
@@ -68,15 +102,15 @@ export const LogMenu = ({ isLog }) => {
                     },
                   })}
                 ></LogInput>
+                <ErrText>{errors?.email?.message}</ErrText>
               </>
             ) : (
               <></>
             )}
-
             <FaUser size={30} />
             <LogInput
               type="text"
-              placeholder="아이디"
+              placeholder="username"
               {...register("username", {
                 required: "아이디를 입력해주세요",
                 minLength: {
@@ -85,10 +119,11 @@ export const LogMenu = ({ isLog }) => {
                 },
               })}
             ></LogInput>
+            <ErrText>{errors?.username?.message}</ErrText>
             <FaUnlock size={30} />
             <LogInput
               type="password"
-              placeholder="비밀번호"
+              placeholder="password"
               {...register("password", {
                 required: "비밀번호를 입력해주세요",
                 minLength: {
@@ -97,7 +132,10 @@ export const LogMenu = ({ isLog }) => {
                 },
               })}
             ></LogInput>
-            <LoginButton type="submit">로그인</LoginButton>
+            <ErrText>{errors?.password?.message}</ErrText>
+            <LoginButton type="submit">
+              {isLog === true ? <>Register</> : <>Login</>}
+            </LoginButton>
           </LoginForm>
         </FormWrap>
       </Containers>

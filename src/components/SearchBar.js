@@ -20,7 +20,6 @@ export const SearchBars = styled.input`
   font-size: 16px;
   height: 50px;
   border-radius: 20px;
-  border: 1px solid gray;
 `;
 export const SearchBar = () => {
   const navigate = useNavigate();
