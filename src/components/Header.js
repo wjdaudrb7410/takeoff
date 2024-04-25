@@ -1,19 +1,11 @@
 import { PiAirplaneTakeoffFill } from "react-icons/pi";
 import styled from "styled-components";
 import { useTheme } from "../themeProvider";
-import { Color } from "../GlobalStyle";
-import {
-  FaLock,
-  FaLockOpen,
-  FaMoon,
-  FaRegistered,
-  FaSun,
-  FaUser,
-} from "react-icons/fa";
+
+import { FaMoon, FaSun, FaUser } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { routes } from "../routes";
-import { BiRegistered } from "react-icons/bi";
-import { FaPeopleGroup } from "react-icons/fa6";
+
 const HeaderWrap = styled.div`
   margin-top: 10px;
   width: 100%;
@@ -29,26 +21,30 @@ const Title = styled.h1`
   top: 26px;
   right: 14px;
   position: relative;
-  color: ${Color.Title};
+  color: ${({ theme }) => theme.TitleIcon};
   font-weight: 700;
 `;
 const TitleWrap = styled.div`
   margin-left: 20px;
   display: flex;
   flex-direction: row;
+  svg {
+    color: ${({ theme }) => theme.TitleIcon};
+  }
 `;
 const ModeButton = styled.button`
   width: 30px;
   height: 30px;
   margin-right: 20px;
   border-radius: 12px;
+  background-color: ${({ theme }) => theme.HeaderBtnBg};
   border: none;
   &:hover {
-    background-color: #4a5568;
+    background-color: ${({ theme }) => theme.HeaderBtnHover};
     transition: 0.5s;
   }
   svg {
-    color: gray;
+    color: ${({ theme }) => theme.HeaderIconBg};
     margin-top: 5px;
   }
   a {
@@ -66,7 +62,7 @@ export const Header = () => {
       <HeaderWrap>
         <Link to={routes.home}>
           <TitleWrap>
-            <PiAirplaneTakeoffFill size={50} color={Color.Title} />
+            <PiAirplaneTakeoffFill size={50} />
             <Title>Take OFF</Title>
           </TitleWrap>
         </Link>

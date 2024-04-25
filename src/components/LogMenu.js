@@ -3,7 +3,7 @@ import { Header } from "./Header";
 
 import { useForm } from "react-hook-form";
 import { FaUnlock, FaUser } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { routes } from "../routes";
 import { MdEmail } from "react-icons/md";
 import { useState } from "react";
@@ -14,14 +14,15 @@ const LoginForm = styled.form`
   display: flex;
   flex-direction: column;
   svg {
+    color: ${({ theme }) => theme.placeholder};
     position: relative;
-    top: 40px;
-    left: 5px;
+    top: 35px;
+    left: 10px;
   }
 `;
 const LogInput = styled.input`
+  margin-bottom: -10px;
   padding: 0 35px;
-
   font-size: 16px;
   height: 50px;
   border-radius: 20px;
@@ -33,29 +34,72 @@ const FormWrap = styled.div`
   padding: 0 20px;
 `;
 const LoginButton = styled.button`
-  font-size: 16px;
-  margin-top: 30px;
+  font-size: 18px;
+  margin-top: 35px;
   width: 100%;
   height: 50px;
-  border: 1px solid gray;
+  border: none;
   border-radius: 20px;
   align-self: center;
-  background-color: white;
-  transition: 0.5s;
+  background-color: ${({ theme }) => theme.LoginBtnBg};
+  text-transform: uppercase;
+  color: ${({ theme }) => theme.LoginBtnText};
+  cursor: pointer;
+  transition: all 0.5s ease 0s;
   &:hover {
-    background-color: #a0aec0;
+    background-color: ${({ theme }) => theme.LoginBtnHover};
   }
 `;
 const LoginTItle = styled.div`
   align-self: flex-start;
-  p {
-    font-size: 18px;
+  p:nth-child(1) {
+    font-size: 40px;
+    text-transform: uppercase;
+    font-weight: 600;
   }
   p:nth-child(2) {
+    text-transform: capitalize;
+    font-weight: 400;
+    letter-spacing: 0px;
     opacity: 0.7;
-    margin-top: 10px;
-    font-size: 12px;
+    margin-top: 15px;
+    font-size: 14px;
     letter-spacing: 0;
+  }
+`;
+const DividerWrap = styled.div`
+  margin-top: 30px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  font-weight: 300;
+  font-size: 12px;
+  color: RGBA(0, 0, 0, 0.16);
+  &::before,
+  &::after {
+    content: "";
+    flex-grow: 1;
+    background: RGBA(0, 0, 0, 0.16);
+    height: 0.5px;
+    font-size: 0px;
+    line-height: 0px;
+    margin: 0px 16px;
+  }
+`;
+const NextText = styled.div`
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  letter-spacing: -1px;
+  margin-top: 10px;
+  font-size: 14px;
+  color: RGBA(0, 0, 0, 0.24);
+  text-align: center;
+  p:nth-child(2) {
+    margin-left: 5px;
+    a {
+      text-decoration: underline;
+    }
   }
 `;
 export const LogMenu = ({ isLog }) => {
@@ -90,7 +134,7 @@ export const LogMenu = ({ isLog }) => {
           <LoginForm onSubmit={handleSubmit(onSubmit)}>
             {isLog === true ? (
               <>
-                <MdEmail size={30} />
+                <MdEmail size={18} />
                 <LogInput
                   type="email"
                   placeholder="e-mail"
@@ -107,7 +151,7 @@ export const LogMenu = ({ isLog }) => {
             ) : (
               <></>
             )}
-            <FaUser size={30} />
+            <FaUser size={18} />
             <LogInput
               type="text"
               placeholder="username"
@@ -120,7 +164,7 @@ export const LogMenu = ({ isLog }) => {
               })}
             ></LogInput>
             <ErrText>{errors?.username?.message}</ErrText>
-            <FaUnlock size={30} />
+            <FaUnlock size={18} />
             <LogInput
               type="password"
               placeholder="password"
@@ -137,6 +181,26 @@ export const LogMenu = ({ isLog }) => {
               {isLog === true ? <>Register</> : <>Login</>}
             </LoginButton>
           </LoginForm>
+          <DividerWrap>OR</DividerWrap>
+          {isLog === true ? (
+            <>
+              <NextText>
+                <p>아이디가 이미 있으신가요?</p>
+                <p>
+                  <Link to={routes.Signin}>로그인</Link>
+                </p>
+              </NextText>
+            </>
+          ) : (
+            <>
+              <NextText>
+                <p>아이디가 없으신가요?</p>
+                <p>
+                  <Link to={routes.Signup}>회원가입</Link>
+                </p>
+              </NextText>
+            </>
+          )}
         </FormWrap>
       </Containers>
     </>

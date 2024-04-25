@@ -10,6 +10,7 @@ export const SearchForm = styled.form`
   margin: 20px 0;
   position: relative;
   svg {
+    color: ${({ theme }) => theme.placeholder};
     position: absolute;
     left: 15px;
     top: 10px;
@@ -38,7 +39,7 @@ export const SearchBar = () => {
   return (
     <>
       <SearchForm onSubmit={handleSubmit(onSubmit)}>
-        <IoIosSearch size={30} color="gray" />
+        <IoIosSearch size={30} />
         <SearchBars
           type="text"
           placeholder="무슨 장소든 입력해 보세요"

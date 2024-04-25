@@ -87,8 +87,11 @@ export const Detail = () => {
             <Title>{Ddata.response.body.items.item[0].title}</Title>
             <Addr>
               <FaLocationDot />
-
-              <div>{Ddata.response.body.items.item[0].addr1}</div>
+              {Ddata.response.body.items.item[0].addr1 ? (
+                <div>{Ddata.response.body.items.item[0].addr1}</div>
+              ) : (
+                <div>위치정보 없음</div>
+              )}
             </Addr>
             <Addr>
               <BsFillTelephoneFill />

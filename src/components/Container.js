@@ -4,7 +4,7 @@ export const ErrText = styled.div`
   padding: 0 10px;
   margin-top: 10px;
   font-size: 12px;
-  color: black;
+  color: gray;
   opacity: 0.7;
   letter-spacing: 0;
 `;
@@ -13,5 +13,6 @@ export const Containers = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: white;
+  background-color: ${({ theme }) => theme.ContentBg};
+  padding-bottom: 150px;
 `;
