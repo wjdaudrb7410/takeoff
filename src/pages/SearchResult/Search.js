@@ -22,6 +22,16 @@ const KeywordText = styled.p`
   font-size: 24px;
   margin: 10px 0;
 `;
+const SearchErrText = styled.div`
+  display: flex;
+  opacity: 0.6;
+  margin-top: 30px;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  width: 100%;
+  height: 300px;
+`;
 export const Search = () => {
   const {
     register,
@@ -48,7 +58,7 @@ export const Search = () => {
       <Containers>
         <Header />
         <SearchForm onSubmit={handleSubmit(onSubmit)}>
-          <IoIosSearch size={30} color="gray" />
+          <IoIosSearch size={30} />
           <SearchBars
             type="text"
             placeholder="무슨 장소든 입력해 보세요"
@@ -59,12 +69,14 @@ export const Search = () => {
         <KeywordText>"{words}" 의 검색결과</KeywordText>
         {kLoading ? (
           <Loading />
-        ) : (
+        ) : kdata?.response?.body?.items?.item ? (
           <ContentWrap>
             {kdata?.response?.body?.items?.item.map((rsl) => (
               <Jacket key={rsl.contentid} data={rsl}></Jacket>
             ))}
           </ContentWrap>
+        ) : (
+          <SearchErrText>검색결과 없음</SearchErrText>
         )}
       </Containers>
     </>

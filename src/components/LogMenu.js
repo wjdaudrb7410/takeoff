@@ -17,12 +17,12 @@ const LoginForm = styled.form`
     color: ${({ theme }) => theme.placeholder};
     position: relative;
     top: 35px;
-    left: 10px;
+    left: 20px;
   }
 `;
 const LogInput = styled.input`
   margin-bottom: -10px;
-  padding: 0 35px;
+  padding: 0 50px;
   font-size: 16px;
   height: 50px;
   border-radius: 20px;

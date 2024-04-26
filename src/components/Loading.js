@@ -13,7 +13,6 @@ const SpinnerWrap = styled.div`
 `;
 export const Loading = () => {
   const [ThemeMode] = useTheme();
-  console.log(ThemeMode);
   return (
     <>
       <SpinnerWrap>

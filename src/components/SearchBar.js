@@ -12,7 +12,7 @@ export const SearchForm = styled.form`
   svg {
     color: ${({ theme }) => theme.placeholder};
     position: absolute;
-    left: 15px;
+    left: 17px;
     top: 10px;
   }
 `;

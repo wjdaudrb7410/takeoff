@@ -98,7 +98,7 @@ export const Detail = () => {
               {Ddata.response.body.items.item[0].tel ? (
                 <div>: {Ddata?.response?.body?.items?.item[0]?.tel}</div>
               ) : (
-                <div> 전화번호없음</div>
+                <div> 대표번호 없음</div>
               )}
             </Addr>
             <Desc>{Ddata.response.body.items.item[0].overview}</Desc>
