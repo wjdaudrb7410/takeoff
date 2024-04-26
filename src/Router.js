@@ -6,11 +6,13 @@ import { Home } from "./pages/home/home";
 import { Detail } from "./pages/Detail/Detail";
 import { FOF } from "./pages/FOF/FOF";
 import { Search } from "./pages/SearchResult/Search";
+import { UseScrollTo } from "./components/UseScrollTo";
 
 export const Router = () => {
   return (
     <>
       <HashRouter>
+        <UseScrollTo />
         <Routes>
           <Route path={routes.home} element={<Home />} />
           <Route path={routes.Signin} element={<Signin />} />

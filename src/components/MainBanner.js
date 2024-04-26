@@ -9,7 +9,6 @@ export const ContentWrap = styled.div`
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 40px;
   column-gap: 10px;
-  padding-bottom: 150px;
 `;
 const LocalText = styled.div`
   margin: 20px;

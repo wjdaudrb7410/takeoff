@@ -6,7 +6,6 @@ import { FaUnlock, FaUser } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { routes } from "../routes";
 import { MdEmail } from "react-icons/md";
-import { useState } from "react";
 import { Containers, ErrText } from "./Container";
 
 const LoginForm = styled.form`
@@ -21,8 +20,8 @@ const LoginForm = styled.form`
   }
 `;
 const LogInput = styled.input`
-  margin-bottom: -10px;
-  padding: 0 50px;
+  margin-bottom: -20px;
+  padding: 0 70px;
   font-size: 16px;
   height: 50px;
   border-radius: 20px;
@@ -93,7 +92,7 @@ const NextText = styled.div`
   letter-spacing: -1px;
   margin-top: 10px;
   font-size: 14px;
-  color: RGBA(0, 0, 0, 0.24);
+  color: ${({ theme }) => theme.LoginNext};
   text-align: center;
   p:nth-child(2) {
     margin-left: 5px;

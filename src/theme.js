@@ -17,6 +17,7 @@ export const lightTheme = {
   LoginBtnBg: "#76E4F7",
   LoginBtnText: "white",
   LoginBtnHover: "#eee",
+  LoginNext: "RGBA(0, 0, 0, 0.24)",
 };
 export const DarkTheme = {
   bgColor: "#1d1d1d",
@@ -25,13 +26,14 @@ export const DarkTheme = {
   TitleIcon: "#eee",
   ContentBg: "#4A5568",
   HeaderIconBg: "#F7FAFC",
-  HeaderBtnBg: "#76E4F7",
+  HeaderBtnBg: "rgb(65,84,114)",
   HeaderBtnHover: "#A0AEC0",
-  InputBg: "#A0AEC0",
-  InputBorderColor: "#eee",
-  LoginBtnBg: "#A0AEC0",
-  LoginBtnText: "#1A202C",
+  InputBg: "rgb(96,108,123)",
+  InputBorderColor: "rgb(155,165,182)",
+  LoginBtnBg: "rgb(99,140,192)",
+  LoginBtnText: "rgb(255,255,255)",
   LoginBtnHover: "#76E4F7",
+  LoginNext: "RGBA(255, 255, 255, 0.4)",
 };
 export const theme = {
   windowSize,

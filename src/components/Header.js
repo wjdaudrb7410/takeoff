@@ -33,9 +33,9 @@ const TitleWrap = styled.div`
   }
 `;
 const ModeButton = styled.button`
-  width: 30px;
-  height: 30px;
-  margin-right: 20px;
+  width: 35px;
+  height: 35px;
+  margin-right: 15px;
   border-radius: 12px;
   background-color: ${({ theme }) => theme.HeaderBtnBg};
   border: none;

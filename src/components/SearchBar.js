@@ -17,7 +17,7 @@ export const SearchForm = styled.form`
   }
 `;
 export const SearchBars = styled.input`
-  padding: 0 50px;
+  padding: 0 70px;
   width: 100%;
   font-size: 16px;
   height: 50px;
